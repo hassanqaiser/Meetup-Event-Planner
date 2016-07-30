@@ -18,7 +18,6 @@ angular
     * @returns {*|Promise}
     */
     this.signin = function(credentials){
-      var vm = this;
       var user = userManager.get(credentials.email);
       if(user !== undefined){
         session.setUser(credentials.email);

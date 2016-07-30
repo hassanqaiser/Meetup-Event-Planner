@@ -29,7 +29,8 @@
       })
       .state('signout', {
         url: '/signin',
-        controller: 'SignoutController'
+        controller: 'SignoutController',
+        controllerAs: 'vm'
       })
       .state('createEvent', {
         url: '/createEvent',
@@ -45,7 +46,7 @@
         }
       });
 
-    $urlRouterProvider.otherwise('/createEvent/');
+    $urlRouterProvider.otherwise('/signin');
   }
 
 })();
