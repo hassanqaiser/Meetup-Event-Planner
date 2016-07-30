@@ -40,7 +40,7 @@
         resolve: {
 
           currentAuth: ["Auth", function (Auth) {
-            return Auth.isLoggedIn('john@doe.com');
+            return Auth.isLoggedIn('qaiser43@outlook.com');
           }]
 
         }
