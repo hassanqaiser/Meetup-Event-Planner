@@ -41,7 +41,7 @@
     <form name="createEventForm" novalidate ng-submit="vm.createEvent()" autocomplete="on">
 
       <!-- Page 1 Start -->
-      <div class="form-group required" ng-show="vm.page===1"
+      <div class="form-group required"
            ng-class="{ 'has-error': createEventForm.eventName.$touched && createEventForm.eventName.$invalid }">
 
         <label for="eventName" class="control-label">Event Name:</label>
@@ -52,7 +52,7 @@
 
       </div>
 
-      <div class="form-group required" ng-show="vm.page===1"
+      <div class="form-group required"
            ng-class="{ 'has-error': createEventForm.eventType.$touched && createEventForm.eventType.$invalid }">
 
         <label for="eventType" class="control-label">Event Type:</label>
@@ -72,7 +72,7 @@
 
       </div>
 
-      <div class="form-group required" ng-show="vm.page===1"
+      <div class="form-group required"
            ng-class="{ 'has-error': createEventForm.hostedBy.$touched && createEventForm.hostedBy.$invalid}">
 
         <label for="hostedBy" class="control-label">Hosted By:</label>
@@ -84,7 +84,7 @@
       </div>
 
 
-      <div class="form-group required" ng-show="vm.page===1"
+      <div class="form-group required"
            ng-class="{ 'has-error': createEventForm.startDate.$touched && createEventForm.startDate.$invalid}">
 
         <label for="startDate" class="control-label">Start Date Time:</label>
@@ -95,7 +95,7 @@
 
       </div>
 
-      <div class="form-group required" ng-show="vm.page===1"
+      <div class="form-group required"
            ng-class="{ 'has-error': createEventForm.endDate.$touched && createEventForm.endDate.$invalid}">
 
         <label for="endDate" class="control-label">End Date Time:</label>
@@ -106,7 +106,7 @@
       </div>
 
       <!-- Page 2 Start -->
-      <div class="form-group required" ng-show="vm.page===2">
+      <div class="form-group required" >
 
         <label for="guest" class="control-label">Add guests</label>
         <ul class="list-group">
@@ -124,7 +124,7 @@
 
       </div>
 
-      <div class="form-group required" ng-show="vm.page===2"
+      <div class="form-group required"
            ng-class="{ 'has-error': createEventForm.location.$touched && createEventForm.location.$invalid }">
 
         <label for="location" class="control-label">Venue:</label>
@@ -139,9 +139,9 @@
 
       </div>
 
-      <h4 ng-show="vm.page===2">Optional:</h4>
+      <h4 >Optional:</h4>
 
-      <div class="form-group" ng-show="vm.page===2">
+      <div class="form-group" >
 
         <label for="description" class="control-label">Additional Description:</label>
         <textarea id="description" class="form-control" name="description" ng-model="vm.description"
@@ -151,20 +151,7 @@
 
       <div class="text-center">
 
-        <button type="button" class="btn btn-primary center" ng-show="vm.page===1" ng-click="vm.page=vm.page+1"
-                ng-disabled="(vm.page===1 && createEventForm.$error.required.length>1)">
-          Next Section
-        </button>
-
-      </div>
-
-      <div class="text-center">
-
-        <button type="button" class="btn btn-primary btn-lg" ng-show="vm.page===2" ng-click="vm.page=vm.page-1">
-          Previous
-        </button>
-
-        <input type="submit" class="btn btn-primary btn-lg" ng-show="vm.page===2"
+        <input type="submit" class="btn btn-primary btn-lg"
                ng-disabled="createEventForm.$invalid || !createEventForm.$dirty" value="Submit">
 
       </div>

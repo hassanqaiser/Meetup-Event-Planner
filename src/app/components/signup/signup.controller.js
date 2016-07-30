@@ -7,9 +7,13 @@
   /** @ngInject */
   function SignupController(userManager, session, $state) {
     var vm = this;
+
+    $("#username").focus();
+    vm.pass_pattern = /(?=^.{8,}$)(?=.*\d)(?=.*[!_@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+    vm.ph_numbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
     vm.message = null;
     vm.error = null;
-    vm.ph_numbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
+
 
     vm.add = function () {
       var user = {

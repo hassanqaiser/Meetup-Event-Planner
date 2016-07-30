@@ -8,6 +8,8 @@
   function SigninController(Auth, $state) {
     var vm = this;
 
+    $("#email").focus();
+
     vm.submitFrom = function () {
 
 

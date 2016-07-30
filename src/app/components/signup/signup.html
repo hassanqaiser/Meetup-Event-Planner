@@ -52,19 +52,16 @@
 
       </div>
       <div class="form-group required"
-           ng-class="{ 'has-error': (SignupForm.pass.$touched || SignupForm.pass.$dirty) && SignupForm.pass.$invalid , 'has-success': SignupForm.pass.$dirty && SignupForm.pass.$valid}">
+           ng-class="{ 'has-error': (SignupForm.pass.$touched || SignupForm.pass.$dirty) && SignupForm.pass.$error.pattern , 'has-success': SignupForm.pass.$dirty && SignupForm.pass.$valid}">
 
         <label for="pass" class="sr-only">Password:</label>
-        <input id="pass" class="form-control" name="pass"  type="password" ng-model="vm.pass"  ng-minlength="8"
-               placeholder="Password" lower-case upper-case required>
+        <input id="pass" class="form-control" name="pass"  type="password" ng-model="vm.pass"  ng-pattern="vm.pass_pattern"
+               ng-minlength="8" placeholder="Password" lower-case upper-case required>
 
-        <span class="help-block" ng-show="SignupForm.pass.$error.required && SignupForm.pass.$touched">Password is required.</span>
-        <span class="help-block" ng-show="SignupForm.pass.$error.minlength && SignupForm.pass.$dirty">The password must be at least 8 characters long.</span>
-        <span class="help-block" ng-show="SignupForm.pass.$error.upperCase && SignupForm.pass.$dirty">Need's at least 1 uppercase character.</span>
-        <span class="help-block" ng-show="SignupForm.pass.$error.lowerCase && SignupForm.pass.$dirty">Need's at least 1 lowercase character.</span>
-        <span class="complex-password">
-          Password Requirements: Minimium 8 characters, at least one lowercase and one uppercase character.
+        <span class="help-block" ng-show="SignupForm.pass.$error.pattern">
+          Password Requirements: Minimium 8 characters, at least one lowercase, one UPPERCASE character, one Number, and one Spcaial Character.
         </span>
+
 
       </div>
 
@@ -72,8 +69,8 @@
            ng-class="{ 'has-error': SignupForm.pass2.$dirty && SignupForm.pass2.$invalid , 'has-success': SignupForm.pass2.$dirty && SignupForm.pass2.$valid}">
 
         <label for="pass2" class="sr-only">Repeat Password:</label>
-        <input id="pass2" class="form-control" name="pass2" type="password" ng-model="vm.pass2"  ng-minlength="8"
-               placeholder="Repeat Password" match-inputs="vm.pass" required>
+        <input id="pass2" class="form-control" name="pass2" type="password" ng-model="vm.pass2"
+               ng-minlength="8" placeholder="Repeat Password" match-inputs="vm.pass" required>
 
         <span class="help-block" ng-show="!SignupForm.pass.$pristine && vm.pass2 != vm.pass">Passwords doesn't match.</span>
       </div>

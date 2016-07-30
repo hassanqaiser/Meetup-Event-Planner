@@ -10,6 +10,8 @@
 angular.module('meetupEvents')
   .controller('createEventCtrl', ['$scope', '$http', 'FOURSQURE_API', '$state', 'events', 'distanceCalculator', function ($scope, $http, FOURSQURE_API, $state, events, distanceCalculator) {
     var vm = this;
+
+		$("#eventName").focus();
 		vm.location = '';
 
     vm.page = 1;
