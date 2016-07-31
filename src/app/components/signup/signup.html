@@ -75,17 +75,10 @@
         <span class="help-block" ng-show="!SignupForm.pass.$pristine && vm.pass2 != vm.pass">Passwords doesn't match.</span>
       </div>
 
-      <div class="form-group required"
-            ng-class="{ 'has-error' : (SignupForm.phone.$invalid && SignupForm.phone.$touched)}">
+      <div class="form-group">
           <label for="phone" class="sr-only">Phone:</label>
           <input id="phone" class="form-control" name="phone" type="text" ng-pattern="vm.ph_numbr"
-               placeholder="Phone" ng-model="vm.phone" required>
-
-          <span class="help-block" ng-show="SignupForm.phone.$error.required && SignupForm.phone.$touched">Phone number is invalid.</span>
-          <span class="help-block" ng-show="SignupForm.phone.$error.minlength">Phone no not less than 10 char.</span>
-          <span class="help-block" ng-show="SignupForm.phone.$error.maxlength">Phone no not more than 11 char.</span>
-          <br>
-          <span class="help-block" ng-show="SignupForm.phone.$error.pattern">Please match pattern [+91-036-78658 || 91-036-78658]</span>
+               placeholder="Phone" ng-model="vm.phone">
       </div>
 
       <div class="form-group">

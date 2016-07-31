@@ -85,29 +85,31 @@
 
 
       <div class="form-group required"
-           ng-class="{ 'has-error': createEventForm.startDate.$touched && createEventForm.startDate.$invalid}">
+           ng-class="{ 'has-error': createEventForm.startDate.$touched && createEventForm.startDate.$invalid && createEventForm.startDate.$error.startBeforeNow}">
 
         <label for="startDate" class="control-label">Start Date Time:</label>
         <input id="startDate" class="form-control" name="startDate"  type="datetime-local" ng-model="vm.startDate"
                placeholder="Start Date Time" required>
 
-        <span class="help-block" ng-show="createEventForm.startDate.$error.required && createEventForm.startDate.$touched">Event start date is Required.</span>
-
+        <span class="help-block" ng-show="createEventForm.startDate.$error.required && createEventForm.startDate.$touched">Start Date is Required.</span>
+        <span class="help-block" ng-show="createEventForm.startDate.$error.startBeforeNow">Start Date can not be in the Past.</span>
       </div>
 
       <div class="form-group required"
-           ng-class="{ 'has-error': createEventForm.endDate.$touched && createEventForm.endDate.$invalid}">
+           ng-class="{ 'has-error': createEventForm.endDate.$touched && createEventForm.endDate.$invalid && createEventForm.endDate.$error.endBeforeOrOnStart}">
 
         <label for="endDate" class="control-label">End Date Time:</label>
         <input id="endDate" class="form-control" name="endDate"  type="datetime-local" ng-model="vm.endDate"
                placeholder="End Date Time" required>
-        <span class="help-block" ng-show="createEventForm.endDate.$error.required && createEventForm.endDate.$touched">Event end date is Required.</span>
+
+        <span class="help-block" ng-show="createEventForm.endDate.$error.required && createEventForm.endDate.$touched">End Date is Required.</span>
+        <span class="help-block" ng-show="createEventForm.endDate.$error.endBeforeOrOnStart">End Date must be after start date.</span>
 
       </div>
 
       <!-- Page 2 Start -->
-      <div class="form-group required" >
-
+      <div class="form-group required"
+           ng-class="{ 'has-error': vm.guests.length<1 && createEventForm.guest.$touched}">
         <label for="guest" class="control-label">Add guests</label>
         <ul class="list-group">
           <li ng-repeat="guest in vm.guests" class="list-group-item list-group-item-info">
@@ -117,10 +119,12 @@
         </ul>
 
         <div class="input-group">
-          <input id="guest" class="form-control" name="guest" type="text" ng-model="vm.guest" placeholder="Guest">
+          <input id="guest" class="form-control" name="guest" type="text" ng-model="vm.guest"
+                 placeholder="Guest">
           <span ng-click="(vm.guest === undefined || !(vm.guest.length > 0)) ||vm.addGuest()"
                 class="input-group-addon" aria-label="Add guest">+</span>
         </div>
+        <span class="help-block" ng-show="vm.guests.length<1 && createEventForm.guest.$touched">At least 1 guest Required.</span>
 
       </div>
 
@@ -152,8 +156,7 @@
       <div class="text-center">
 
         <input type="submit" class="btn btn-primary btn-lg"
-               ng-disabled="createEventForm.$invalid || !createEventForm.$dirty" value="Submit">
-
+               ng-disabled="createEventForm.$invalid || vm.guests.length<1" value="Submit">
       </div>
 
     </form>
