@@ -1,12 +1,6 @@
-'use strict';
+(function () {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name meetupEventsApp.controller:EventsControllerCtrl
- * @description
- * # EventsControllerCtrl
- * Controller of the meetupEventsApp
- */
 angular.module('meetupEvents')
   .controller('createEventCtrl', ['$scope', '$http', 'FOURSQURE_API', '$state', 'events', 'distanceCalculator', function ($scope, $http, FOURSQURE_API, $state, events, distanceCalculator) {
     var vm = this;
@@ -133,3 +127,5 @@ angular.module('meetupEvents')
 		};
 
   }]);
+
+})();

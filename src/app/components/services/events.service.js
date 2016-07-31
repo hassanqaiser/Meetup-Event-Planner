@@ -1,12 +1,6 @@
-'use strict';
-
-/**
- * @ngdoc service
- * @name meetupEventsApp.events.service
- * @description
- * # events.service
- * Service in the meetupEventsApp.
- */
+(function () {
+  'use strict';
+  
 angular.module('meetupEvents')
   .service('events', function (session) {
     var vm = this;
@@ -29,3 +23,5 @@ angular.module('meetupEvents')
       return delete vm.events[eventName + '_' + session._user];
     };
   });
+
+})();

@@ -1,7 +1,5 @@
-'use strict';
-//Get your client ID and secrent by visiting https://developer.foursquare.com
-//Thise are demo client Id & secret.
-
+(function () {
+  'use strict';
 angular
   .module('meetupEvents')
   .factory('locationApi', function($resource) {
@@ -22,3 +20,4 @@ angular
       });
 
   });
+})();

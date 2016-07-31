@@ -1,9 +1,5 @@
-/**
- * The `distanceCalculator` service allows to calculate distance between two geographycal location
- *
- * @param {lat1, lon1, lat2, lon2, unit}
- * @return float distance
- */
+(function () {
+  'use strict';
 angular.module('meetupEvents')
  .factory('distanceCalculator', function () {
 	return {
@@ -32,3 +28,5 @@ angular.module('meetupEvents')
 		}
 	}
 });
+
+})();
